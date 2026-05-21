@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Contact our local game store for questions, event info, product availability, or community inquiries.">
+    <title>Contact Us | Local Game Store</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+
+<body>
+<div id="wrapper">
+
+<header>
+    <a href="index.html">
+    <img src="images/pexels-fotios-photos-32191794.jpg" alt="Local Game Store Logo">
+    </a>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="hours.html">Hours</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h1>Contact Us</h1>
+
+    <section>
+        <h2>Get in Touch</h2>
+        <p>
+            Have a question about products, events, or special orders?
+            Send us a message and we’ll get back to you as soon as possible.
+        </p>
+    </section>
+
+    <section>
+        <form method="post" action="https://webdevbasics.net/scripts/demo.php" onsubmit="return validateContactForm();">
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="3" cols="20" required></textarea>
+
+            <input type="submit" value="Send Message">
+
+        </form>
+        <p id="successMessage" style="color: green; font-weight: bold; display: none;">
+    Form submitted successfully!
+</p>
+    </section>
+</main>
+
+<footer>
+    <p>123 Game St | (555) 555‑5555 | @GameStore</p>
+</footer>
+
+</div>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+
+    const nameField = document.getElementById("name");
+    const emailField = document.getElementById("email");
+    const messageField = document.getElementById("message");
+    const successMessage = document.getElementById("successMessage");
+
+    let valid = true;
+
+    // Reset
+    nameField.classList.remove("error-border");
+    emailField.classList.remove("error-border");
+    messageField.classList.remove("error-border");
+    successMessage.style.display = "none";
+
+    if (nameField.value.trim() === "") {
+        nameField.classList.add("error-border");
+        valid = false;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(emailField.value.trim())) {
+        emailField.classList.add("error-border");
+        valid = false;
+    }
+
+    if (messageField.value.trim() === "") {
+        messageField.classList.add("error-border");
+        valid = false;
+    }
+
+    if (!valid) {
+        event.preventDefault();
+        alert("Please correct the highlighted fields.");
+    } else {
+        successMessage.style.display = "block";
+    }
+});
+</script>
+</body>
+</html>
