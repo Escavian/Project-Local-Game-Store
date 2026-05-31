@@ -57,6 +57,7 @@ LocalGameStore/
 ## 🚀 How to View
 
 https://student066.webdev.seminolestate.edu/Project/chapter14/index.html
+
 ( Disloser: PayPal example functions are live! "Do not Purchase items!" )
 
 ---
